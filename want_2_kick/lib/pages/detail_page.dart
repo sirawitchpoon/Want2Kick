@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:want_2_kick/cells/detail_ceil.dart';
 import 'package:want_2_kick/models/stadium.dart';
@@ -120,13 +122,61 @@ class _DetailPageState extends State<DetailPage> {
                     height: 32,
                   ),
                   Text(
-                    'Tip: Mohamed Solah 2022/2033 BallonDor Winner',
+                    'Select Time: ',
                     style: TextStyle(
-                      color: HexColor('#9E9E9E'),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
+                  SizedBox(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.greenAccent,
+                            child: Text(
+                              "8:00-9:00",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.greenAccent,
+                            child: Text(
+                              "9:00-10",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.greenAccent,
+                            child: Text(
+                              "10:00-11:00",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // GestureDetector(onTap: null,
+                  //  child: Padding(
+                  //    padding: const EdgeInsets.all(8),
+                  //    child: Align(
+                  //      alignment: Alignment.centerRight,
+                  //      child: Icon(Icons.calendar_today,color: Colors.white,),
+                  //    ),
+                  // ),
                 ],
               ),
             ),
