@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "want_2_kick",
+            "cwd": "want_2_kick",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "want_2_kick (profile mode)",
+            "cwd": "want_2_kick",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "want_2_kick (release mode)",
+            "cwd": "want_2_kick",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
