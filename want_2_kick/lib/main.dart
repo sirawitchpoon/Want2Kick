@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Want to Kick App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.grey[850],
         fontFamily: 'SFProDisplay',
       ),
       home: HomePage(),

@@ -15,7 +15,7 @@ class TrdCell extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey[700],
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -44,7 +44,7 @@ class TrdCell extends StatelessWidget {
       height: 77,
       width: 90,
       decoration: BoxDecoration(
-        color: HexColor('#00C6AD'),
+        color: Colors.grey[600],
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           image: AssetImage('assets/images/' + stadium.image),
@@ -83,7 +83,7 @@ class TrdCell extends StatelessWidget {
         Text(
           stadium.name,
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.w700,
           ),

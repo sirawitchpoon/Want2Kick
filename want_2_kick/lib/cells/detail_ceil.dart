@@ -14,23 +14,11 @@ class DetailCell extends StatelessWidget {
       width: 100,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: HexColor('#EDFDFA'),
+        color: Colors.grey[600],
         borderRadius: BorderRadius.circular(14),
       ),
       child: Stack(
         children: [
-          Positioned(
-            left: 0,
-            bottom: 0,
-            child: Container(
-              width: 61,
-              height: 31,
-              decoration: BoxDecoration(
-                color: HexColor('#E1F7F4'),
-                borderRadius: BorderRadius.only(topRight: Radius.circular(16)),
-              ),
-            ),
-          ),
           Align(
             alignment: Alignment.center,
             child: Column(
@@ -39,7 +27,7 @@ class DetailCell extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: HexColor('#00C6AD'),
+                    color: Colors.white,
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                   ),
@@ -50,7 +38,7 @@ class DetailCell extends StatelessWidget {
                 Text(
                   subTitle,
                   style: TextStyle(
-                    color: HexColor('#696969'),
+                    color: Colors.white60,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),

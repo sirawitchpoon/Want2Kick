@@ -73,12 +73,12 @@ class _HomePageState extends State<HomePage> {
   //Widget
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[900],
       elevation: 0,
       // brightness: Brightness.light,
-      iconTheme: IconThemeData(color: HexColor('#150047')),
+      iconTheme: IconThemeData(color: Colors.grey[50]),
       leading: IconButton(
-        icon: Icon(
+        icon: const Icon(
           CustomIcons.menu,
           size: 14,
         ),
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       ),
       actions: [
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             CustomIcons.search,
             size: 20,
           ),
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
         primary: false,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         itemCount: _hStadiums.length,
         separatorBuilder: (BuildContext context, int index) =>
             const Divider(indent: 16),
@@ -120,31 +120,31 @@ class _HomePageState extends State<HomePage> {
   Column _categorySection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'League',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        const SizedBox(
-          height: 32,
-        ),
-        SizedBox(
-          height: 100,
-          child: ListView.separated(
-            primary: false,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: _categories.length,
-            separatorBuilder: (BuildContext context, int index) =>
-                Divider(indent: 16),
-            itemBuilder: (BuildContext context, int index) =>
-                CategoryCell(category: _categories[index]),
-          ),
-        ),
+      children: const [
+        // const Text(
+        //   'Available',
+        //   style: TextStyle(
+        //     color: Colors.white,
+        //     fontSize: 18,
+        //     fontWeight: FontWeight.w400,
+        //   ),
+        // ),
+        // const SizedBox(
+        //   height: 32,
+        // ),
+        // SizedBox(
+        //   height: 100,
+        //   child: ListView.separated(
+        //     primary: false,
+        //     shrinkWrap: true,
+        //     scrollDirection: Axis.horizontal,
+        //     itemCount: _categories.length,
+        //     separatorBuilder: (BuildContext context, int index) =>
+        //         Divider(indent: 16),
+        //     itemBuilder: (BuildContext context, int index) =>
+        //         CategoryCell(category: _categories[index]),
+        //   ),
+        // ),
       ],
     );
   }
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
         const Text(
           'Top Rated Stadium',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
@@ -194,7 +194,8 @@ class _HomePageState extends State<HomePage> {
       price: '800 Baht',
       rating: 5,
       location: 'Merseyside, England',
-      trophys: '70',
+      capacity: '54K',
+      opened: '1884',
     ));
     hStadiums.add(Stadium(
         name: 'Emirates',
@@ -202,21 +203,24 @@ class _HomePageState extends State<HomePage> {
         price: '500 Baht',
         rating: 4,
         location: 'London, England',
-        trophys: '63'));
+        capacity: '60K',
+        opened: '2006'));
     hStadiums.add(Stadium(
         name: 'Ethihad',
         image: 'ethihad.png',
         price: '1000 Baht',
         rating: 4,
         location: 'Manchester, England',
-        trophys: '28'));
+        capacity: '55K',
+        opened: '2003'));
     hStadiums.add(Stadium(
-        name: 'Camp Nou',
-        image: 'campnou.png',
+        name: 'King Power',
+        image: 'kingpower.png',
         price: '900 Baht',
         rating: 4,
-        location: 'Barcelona, Spain',
-        trophys: '65'));
+        location: 'Leister, England',
+        capacity: '32K',
+        opened: '2002'));
 
     return hStadiums;
   }
@@ -225,7 +229,7 @@ class _HomePageState extends State<HomePage> {
   List<Category> _getCategories() {
     List<Category> categories = [];
     categories
-        .add(Category(icon: Icons.sports_soccer, title: 'Premier League'));
+        .add(Category(icon: Icons.sports_soccer, title: 'Premier opened'));
     return categories;
   }
 
@@ -238,7 +242,8 @@ class _HomePageState extends State<HomePage> {
       price: '800 Baht',
       rating: 5,
       location: 'Merseyside, England',
-      trophys: '70',
+      capacity: '70',
+      opened: 'EPL',
     ));
     return trStadiums;
   }

@@ -29,31 +29,32 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.only(bottom: 32),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(bottom: 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _titleSection(),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Stadium:' + widget.stadium.name,
-                    style: TextStyle(
-                      color: Colors.black,
+                    'Stadium: ' + widget.stadium.name,
+                    style: const TextStyle(
+                      color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
+
                   Row(
                     children: [
                       Icon(
@@ -61,39 +62,24 @@ class _DetailPageState extends State<DetailPage> {
                         size: 14,
                         color: HexColor('#C6C6CD'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
-                      // Text(
-                      //   widget.stadium.location,
-                      //   style: TextStyle(
-                      //     color: HexColor('#C6C6CD'),
-                      //     fontSize: 14,
-                      //     fontWeight: FontWeight.w400,
-                      //   ),
-                      // ),
+                      Text(
+                        widget.stadium.location,
+                        style: TextStyle(
+                          color: HexColor('#C6C6CD'),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 16,
+                  //Location
+                  const SizedBox(
+                    height: 20,
                   ),
-                  // Container(
-                  //   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  //   decoration: BoxDecoration(
-                  //     color: HexColor('#FFF9EA'),
-                  //     border: Border.all(color: HexColor('#FFEDBE'), width: 1),
-                  //     borderRadius: BorderRadius.circular(4),
-                  //   ),
-                  //   child: Text(
-                  //     widget.stadium.type + ' Specialist',
-                  //     style: TextStyle(
-                  //       color: HexColor('#FFBF11'),
-                  //       fontSize: 11,
-                  //       fontWeight: FontWeight.w400,
-                  //     ),
-                  //   ),
-                  // ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   Text(
@@ -104,7 +90,7 @@ class _DetailPageState extends State<DetailPage> {
                       fontWeight: FontWeight.w300,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   SizedBox(
@@ -113,22 +99,26 @@ class _DetailPageState extends State<DetailPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DetailCell(title: '300k', subTitle: 'People'),
-                        DetailCell(title: '70', subTitle: 'Trophys'),
-                        DetailCell(title: '2.3B', subTitle: 'Fans'),
+                        DetailCell(
+                            title: widget.stadium.capacity,
+                            subTitle: 'Capacity'),
+                        DetailCell(
+                            title: widget.stadium.opened, subTitle: 'opened'),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
-                  Text(
+                  const Text(
                     'Select Time: ',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
+
                   SizedBox(
                     child: Row(
                       children: [
@@ -136,8 +126,8 @@ class _DetailPageState extends State<DetailPage> {
                           padding: const EdgeInsets.all(8.0),
                           child: RaisedButton(
                             onPressed: () {},
-                            color: Colors.greenAccent,
-                            child: Text(
+                            color: Colors.greenAccent[700],
+                            child: const Text(
                               "8:00-9:00",
                               style: TextStyle(color: Colors.white),
                             ),
@@ -147,8 +137,8 @@ class _DetailPageState extends State<DetailPage> {
                           padding: const EdgeInsets.all(8.0),
                           child: RaisedButton(
                             onPressed: () {},
-                            color: Colors.greenAccent,
-                            child: Text(
+                            color: Colors.greenAccent[700],
+                            child: const Text(
                               "9:00-10",
                               style: TextStyle(color: Colors.white),
                             ),
@@ -158,8 +148,8 @@ class _DetailPageState extends State<DetailPage> {
                           padding: const EdgeInsets.all(8.0),
                           child: RaisedButton(
                             onPressed: () {},
-                            color: Colors.greenAccent,
-                            child: Text(
+                            color: Colors.greenAccent[700],
+                            child: const Text(
                               "10:00-11:00",
                               style: TextStyle(color: Colors.white),
                             ),
@@ -168,6 +158,7 @@ class _DetailPageState extends State<DetailPage> {
                       ],
                     ),
                   ),
+                  //Booking Time
 
                   // GestureDetector(onTap: null,
                   //  child: Padding(
@@ -189,7 +180,7 @@ class _DetailPageState extends State<DetailPage> {
   /// APP BAR
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: HexColor('#00C6AD'),
+      backgroundColor: Colors.grey[900],
       elevation: 0,
       brightness: Brightness.dark,
       iconTheme: IconThemeData(color: Colors.white),
@@ -203,23 +194,11 @@ class _DetailPageState extends State<DetailPage> {
   Container _titleSection() {
     return Container(
       height: 250,
-      color: HexColor('#00C6AD'),
+      color: Colors.grey[850],
       child: Stack(
         children: [
-          const Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              width: 207,
-              height: 178,
-              child: Image(
-                filterQuality: FilterQuality.high,
-                fit: BoxFit.fitHeight,
-                image: AssetImage('assets/images/bg_shape.png'),
-              ),
-            ),
-          ),
           Positioned(
-            right: 64,
+            right: 104,
             bottom: 15,
             child: SizedBox(
               height: 250,
@@ -241,8 +220,8 @@ class _DetailPageState extends State<DetailPage> {
             right: 0,
             bottom: 0,
             child: Container(
-              height: 15,
-              color: Colors.white,
+              height: 8,
+              color: Colors.grey[400],
             ),
           ),
           Positioned(
@@ -251,7 +230,7 @@ class _DetailPageState extends State<DetailPage> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: HexColor('#FFBB23'),
+                color: Colors.black87,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(

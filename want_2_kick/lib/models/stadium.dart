@@ -7,7 +7,8 @@ class Stadium {
   final String price;
   final double rating;
   final String location;
-  final String trophys;
+  final String capacity;
+  final String opened;
 
   Stadium({
     required this.name,
@@ -15,6 +16,7 @@ class Stadium {
     required this.price,
     required this.rating,
     required this.location,
-    required this.trophys,
+    required this.capacity,
+    required this.opened,
   });
 }

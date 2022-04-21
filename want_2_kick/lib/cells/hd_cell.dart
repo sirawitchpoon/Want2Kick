@@ -19,8 +19,7 @@ class HDCell extends StatelessWidget {
         height: 199,
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-            color: HexColor('#00C6AD'),
-            borderRadius: BorderRadius.circular(20)),
+            color: Colors.grey[700], borderRadius: BorderRadius.circular(20)),
         child: Stack(
           children: [
             // const Positioned(
@@ -77,7 +76,7 @@ class HDCell extends StatelessWidget {
                 width: 77,
                 height: 54,
                 decoration: BoxDecoration(
-                  color: HexColor('#00A994'),
+                  color: Colors.grey[800],
                   borderRadius:
                       const BorderRadius.only(topRight: Radius.circular(32)),
                 ),
