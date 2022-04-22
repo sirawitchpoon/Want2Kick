@@ -5,6 +5,7 @@ import 'package:want_2_kick/cells/trd_cell.dart';
 import 'package:want_2_kick/models/category.dart';
 import 'package:want_2_kick/models/stadium.dart';
 import 'package:want_2_kick/pages/detail_page.dart';
+import 'package:want_2_kick/pages/login_page.dart';
 import 'package:want_2_kick/utils/custom_icons_icons.dart';
 import 'package:want_2_kick/utils/he_color.dart';
 
@@ -61,6 +62,19 @@ class _HomePageState extends State<HomePage> {
                     height: 32,
                   ),
                   _trStadiumsSection(),
+                  SizedBox(height: 200),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    icon: Icon(Icons.logout),
+                    label: Text('LOGOUT'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  ),
                 ],
               ),
             ),

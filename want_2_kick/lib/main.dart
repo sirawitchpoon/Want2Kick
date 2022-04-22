@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:want_2_kick/pages/home_page.dart';
+import 'package:want_2_kick/pages/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[850],
         fontFamily: 'SFProDisplay',
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
