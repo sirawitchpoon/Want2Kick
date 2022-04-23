@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:want_2_kick/cells/detail_ceil.dart';
 import 'package:want_2_kick/models/stadium.dart';
@@ -20,6 +21,16 @@ class DetailPage extends StatefulWidget {
 /// **************************************
 
 class _DetailPageState extends State<DetailPage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  late User user;
+  Future<void> getUserData() async {
+    User userData = FirebaseAuth.instance.currentUser!;
+    setState(() {
+      user = userData;
+    });
+  }
+
   /// **********************************************
   /// LIFE CYCLE METHODS
   /// **********************************************

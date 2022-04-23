@@ -1,13 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:want_2_kick/cells/category_cell.dart';
 import 'package:want_2_kick/cells/hd_cell.dart';
 import 'package:want_2_kick/cells/trd_cell.dart';
 import 'package:want_2_kick/models/category.dart';
 import 'package:want_2_kick/models/stadium.dart';
 import 'package:want_2_kick/pages/detail_page.dart';
-import 'package:want_2_kick/pages/login_page.dart';
-import 'package:want_2_kick/utils/custom_icons_icons.dart';
-import 'package:want_2_kick/utils/he_color.dart';
+import 'package:want_2_kick/pages/initial_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,6 +13,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late User user;
+  Future<void> getUserData() async {
+    User userData = FirebaseAuth.instance.currentUser!;
+    setState(() {
+      user = userData;
+    });
+  }
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   List<Stadium> _hStadiums = [];
   List<Category> _categories = [];
   List<Stadium> _trStadiums = [];
@@ -34,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    getUserData();
     _hStadiums = _getStadiums();
     _categories = _getCategories();
     _trStadiums = _getTRStadium();
@@ -48,6 +57,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 15,
+            ),
             _hStadiumsSection(),
             const SizedBox(
               height: 32,
@@ -57,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _categorySection(),
+                  // _categorySection(),
                   const SizedBox(
                     height: 32,
                   ),
@@ -65,10 +77,13 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 200),
                   ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
+                      auth.signOut().then((value) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => InitialPage()),
+                        );
+                      });
                     },
                     icon: Icon(Icons.logout),
                     label: Text('LOGOUT'),
@@ -89,24 +104,7 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       backgroundColor: Colors.grey[900],
       elevation: 0,
-      // brightness: Brightness.light,
-      iconTheme: IconThemeData(color: Colors.grey[50]),
-      leading: IconButton(
-        icon: const Icon(
-          CustomIcons.menu,
-          size: 14,
-        ),
-        onPressed: () {},
-      ),
-      actions: [
-        IconButton(
-          icon: const Icon(
-            CustomIcons.search,
-            size: 20,
-          ),
-          onPressed: () {},
-        ),
-      ],
+      title: Text(auth.currentUser!.email.toString()),
     );
   }
 
@@ -131,37 +129,37 @@ class _HomePageState extends State<HomePage> {
   }
 
   //Category Section
-  Column _categorySection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        // const Text(
-        //   'Available',
-        //   style: TextStyle(
-        //     color: Colors.white,
-        //     fontSize: 18,
-        //     fontWeight: FontWeight.w400,
-        //   ),
-        // ),
-        // const SizedBox(
-        //   height: 32,
-        // ),
-        // SizedBox(
-        //   height: 100,
-        //   child: ListView.separated(
-        //     primary: false,
-        //     shrinkWrap: true,
-        //     scrollDirection: Axis.horizontal,
-        //     itemCount: _categories.length,
-        //     separatorBuilder: (BuildContext context, int index) =>
-        //         Divider(indent: 16),
-        //     itemBuilder: (BuildContext context, int index) =>
-        //         CategoryCell(category: _categories[index]),
-        //   ),
-        // ),
-      ],
-    );
-  }
+  // Column _categorySection() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: const [
+  //       // const Text(
+  //       //   'Available',
+  //       //   style: TextStyle(
+  //       //     color: Colors.white,
+  //       //     fontSize: 18,
+  //       //     fontWeight: FontWeight.w400,
+  //       //   ),
+  //       // ),
+  //       // const SizedBox(
+  //       //   height: 32,
+  //       // ),
+  //       // SizedBox(
+  //       //   height: 100,
+  //       //   child: ListView.separated(
+  //       //     primary: false,
+  //       //     shrinkWrap: true,
+  //       //     scrollDirection: Axis.horizontal,
+  //       //     itemCount: _categories.length,
+  //       //     separatorBuilder: (BuildContext context, int index) =>
+  //       //         Divider(indent: 16),
+  //       //     itemBuilder: (BuildContext context, int index) =>
+  //       //         CategoryCell(category: _categories[index]),
+  //       //   ),
+  //       // ),
+  //     ],
+  //   );
+  // }
 
   ///Top Rated Stadium Section
   Column _trStadiumsSection() {

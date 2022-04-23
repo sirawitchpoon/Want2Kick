@@ -4,18 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:want_2_kick/models/profile.dart';
-import 'package:want_2_kick/pages/home_page.dart';
+import 'package:want_2_kick/pages/initial_page.dart';
 
-import 'initial_page.dart';
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
   Profile profile = Profile(email: '', password: '');
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
@@ -47,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                             const Padding(
                               padding: EdgeInsets.only(right: 310),
                               child: Text(
-                                'Login :',
+                                'Register :',
                                 style: TextStyle(
                                     fontSize: 20, color: Colors.white),
                               ),
@@ -116,25 +114,40 @@ class _LoginPageState extends State<LoginPage> {
                                     formKey.currentState?.save();
                                     try {
                                       await FirebaseAuth.instance
-                                          .signInWithEmailAndPassword(
+                                          .createUserWithEmailAndPassword(
                                               email: profile.email,
                                               password: profile.password)
                                           .then((value) {
                                         formKey.currentState!.reset();
+                                        Fluttertoast.showToast(
+                                            msg: "Register Finish!!",
+                                            gravity: ToastGravity.TOP);
                                         Navigator.pushReplacement(context,
                                             MaterialPageRoute(
                                                 builder: (context) {
-                                          return HomePage();
+                                          return InitialPage();
                                         }));
                                       });
                                     } on FirebaseAuthException catch (e) {
+                                      print(e.code);
+                                      String message;
+                                      if (e.code == 'email-already-in-use') {
+                                        message =
+                                            "The email address is already in use by another account. Please use the other one";
+                                      } else if (e.code == 'weak-password') {
+                                        message =
+                                            "Password should be at least 6 characters";
+                                      } else {
+                                        message = e.message.toString();
+                                      }
+                                      print(e.message);
                                       Fluttertoast.showToast(
                                           msg: e.message.toString(),
                                           gravity: ToastGravity.CENTER);
                                     }
                                   }
                                 },
-                                child: const Text("Login"),
+                                child: const Text("Register"),
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.green)),
