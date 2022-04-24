@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "756855321880",
+    "project_id": "wanttokickapp-f4518",
+    "storage_bucket": "wanttokickapp-f4518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756855321880:android:a3fd5dd1a8e57783e61a6d",
+        "android_client_info": {
+          "package_name": "com.example.want_to_kick_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756855321880-nctarleu5viv8g3g3b48is6rt2r98ph8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl8oBndr2jR77wTaC87YNpICYW8EfqFuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756855321880-nctarleu5viv8g3g3b48is6rt2r98ph8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
