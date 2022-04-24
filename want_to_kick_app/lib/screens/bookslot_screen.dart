@@ -126,7 +126,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 0,
                                 groupValue: _groupValue,
-                                title: const Text("8:00-9:00"),
+                                title: const Text("13:00-14:00"),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -138,7 +138,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 1,
                                 groupValue: _groupValue,
-                                title: const Text("9:00-10:00"),
+                                title: const Text("14:00-15:00"),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -154,7 +154,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 2,
                                 groupValue: _groupValue,
-                                title: const Text("10:00-11:00"),
+                                title: const Text("15:00-16:00"),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -166,7 +166,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 3,
                                 groupValue: _groupValue,
-                                title: const Text("11:00-12:00"),
+                                title: const Text("16:00-17:00"),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
