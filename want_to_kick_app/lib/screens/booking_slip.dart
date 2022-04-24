@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'login_screen.dart';
+import 'home_screen.dart';
 
 class BookingSlip extends StatefulWidget {
   final String email, password, stadiumname, location, price, slot, contact;
@@ -101,7 +101,10 @@ class _BookingSlipState extends State<BookingSlip> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
+                          builder: (context) => HomeScreen(
+                                email: '',
+                                password: '',
+                              )));
                 },
                 child: const Text("Return To Home"),
               ),
