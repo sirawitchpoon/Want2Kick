@@ -194,13 +194,13 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                         DateFormat.jm().format(DateTime.now());
                     var message = "Your slot has been booked Successfully";
                     if (_groupValue == 0) {
-                      time = "8:00-9:00";
+                      time = "13:00-14:00";
                     } else if (_groupValue == 1) {
-                      time = "9:00-10:00";
+                      time = "14:00-15:00";
                     } else if (_groupValue == 2) {
-                      time = "10:00-11:00";
+                      time = "15:00-16:00";
                     } else {
-                      time = "11:00-12:00";
+                      time = "16:00-17:00";
                     }
                     Map<String, dynamic> data = {
                       "email": widget.email,
