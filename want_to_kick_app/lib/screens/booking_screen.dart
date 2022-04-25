@@ -13,7 +13,15 @@ class BookingScreen extends StatefulWidget {
       openingtime,
       price,
       location,
+      stadiumperiod1,
+      stadiumperiod2,
+      stadiumperiod3,
+      stadiumperiod4,
       contact;
+  // stadiumperiod1,
+  // stadiumperiod2,
+  // stadiumperiod3,
+  // stadiumperiod4;
   // ignore: use_key_in_widget_constructors
   const BookingScreen(
       {required this.email,
@@ -23,7 +31,11 @@ class BookingScreen extends StatefulWidget {
       required this.openingtime,
       required this.price,
       required this.location,
-      required this.contact});
+      required this.contact,
+      required this.stadiumperiod1,
+      required this.stadiumperiod2,
+      required this.stadiumperiod3,
+      required this.stadiumperiod4});
 
   @override
   State<BookingScreen> createState() => _BookingScreenState();
@@ -155,15 +167,18 @@ class _BookingScreenState extends State<BookingScreen> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => BookSlotScreen(
-                                  email: email,
-                                  password: password,
-                                  image: image,
-                                  stadiumname: stadiumname,
-                                  openingtime: openingtime,
-                                  price: price,
-                                  location: location,
-                                  contact: contact,
-                                )));
+                                email: email,
+                                password: password,
+                                image: image,
+                                stadiumname: stadiumname,
+                                openingtime: openingtime,
+                                price: price,
+                                location: location,
+                                contact: contact,
+                                stadiumperiod1: widget.stadiumperiod1,
+                                stadiumperiod2: widget.stadiumperiod2,
+                                stadiumperiod3: widget.stadiumperiod3,
+                                stadiumperiod4: widget.stadiumperiod4)));
                   },
                   child: const Text("Book Slot"),
                 ),

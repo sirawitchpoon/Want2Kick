@@ -90,23 +90,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              BookingScreen(
-                                                                  email:
-                                                                      widget
-                                                                          .email,
-                                                                  password: widget
-                                                                      .password,
-                                                                  image: image,
-                                                                  stadiumname:
-                                                                      stadiumname,
-                                                                  openingtime:
-                                                                      openingtime,
-                                                                  price: price,
-                                                                  location:
-                                                                      location,
-                                                                  contact:
-                                                                      contact)));
+                                                          builder: (context) => BookingScreen(
+                                                              email:
+                                                                  widget.email,
+                                                              password: widget
+                                                                  .password,
+                                                              image: image,
+                                                              stadiumname:
+                                                                  stadiumname,
+                                                              openingtime:
+                                                                  openingtime,
+                                                              price: price,
+                                                              location:
+                                                                  location,
+                                                              contact: contact,
+                                                              stadiumperiod1:
+                                                                  myPost[
+                                                                      'stadiumperiod1'],
+                                                              stadiumperiod2:
+                                                                  myPost[
+                                                                      'stadiumperiod2'],
+                                                              stadiumperiod3:
+                                                                  myPost[
+                                                                      'stadiumperiod3'],
+                                                              stadiumperiod4:
+                                                                  myPost[
+                                                                      'stadiumperiod4'])));
                                                 },
                                                 child: ClipRRect(
                                                   borderRadius:

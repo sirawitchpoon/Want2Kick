@@ -44,14 +44,16 @@ class _SignupScreenState extends State<SignupScreen> {
           title: const Text("WANT 2 KICK"),
           automaticallyImplyLeading: false,
           actions: [
+            const Text("\n" + "Login"),
             IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
-                },
-                icon: const Icon(Icons.login_sharp))
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              },
+              icon: const Icon(Icons.login_sharp),
+            )
           ],
         ),
         body: SingleChildScrollView(
@@ -67,6 +69,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     "https://www.kindpng.com/picc/m/152-1522405_usc-trojans-football-sport-logo-american-football-football.png",
                     width: 250,
                     height: 250,
+                  ),
+                  const Text(
+                    "Register",
+                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                   ),
                   Padding(
                     padding:
@@ -89,6 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: TextFormField(
+                        obscureText: true,
                         controller: _passwordController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),

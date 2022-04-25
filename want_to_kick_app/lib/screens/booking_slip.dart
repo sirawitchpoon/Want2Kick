@@ -102,8 +102,8 @@ class _BookingSlipState extends State<BookingSlip> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => HomeScreen(
-                                email: '',
-                                password: '',
+                                email: widget.email,
+                                password: widget.password,
                               )));
                 },
                 child: const Text("Return To Home"),

@@ -14,7 +14,11 @@ class BookSlotScreen extends StatefulWidget {
       openingtime,
       price,
       location,
-      contact;
+      contact,
+      stadiumperiod1,
+      stadiumperiod2,
+      stadiumperiod3,
+      stadiumperiod4;
   // ignore: use_key_in_widget_constructors
   const BookSlotScreen(
       {required this.email,
@@ -24,7 +28,11 @@ class BookSlotScreen extends StatefulWidget {
       required this.openingtime,
       required this.price,
       required this.location,
-      required this.contact});
+      required this.contact,
+      required this.stadiumperiod1,
+      required this.stadiumperiod2,
+      required this.stadiumperiod3,
+      required this.stadiumperiod4});
 
   @override
   State<BookSlotScreen> createState() => _BookSlotScreenState();
@@ -126,7 +134,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 0,
                                 groupValue: _groupValue,
-                                title: const Text("13:00-14:00"),
+                                title: Text(widget.stadiumperiod1),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -138,7 +146,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 1,
                                 groupValue: _groupValue,
-                                title: const Text("14:00-15:00"),
+                                title: Text(widget.stadiumperiod2),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -154,7 +162,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 2,
                                 groupValue: _groupValue,
-                                title: const Text("15:00-16:00"),
+                                title: Text(widget.stadiumperiod3),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -166,7 +174,7 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                               child: RadioListTile(
                                 value: 3,
                                 groupValue: _groupValue,
-                                title: const Text("16:00-17:00"),
+                                title: Text(widget.stadiumperiod4),
                                 onChanged: (newValue) => setState(
                                     () => _groupValue = newValue as int),
                                 activeColor: Colors.red,
@@ -194,13 +202,13 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                         DateFormat.jm().format(DateTime.now());
                     var message = "Your slot has been booked Successfully";
                     if (_groupValue == 0) {
-                      time = "13:00-14:00";
+                      time = widget.stadiumperiod1;
                     } else if (_groupValue == 1) {
-                      time = "14:00-15:00";
+                      time = widget.stadiumperiod2;
                     } else if (_groupValue == 2) {
-                      time = "15:00-16:00";
+                      time = widget.stadiumperiod3;
                     } else {
-                      time = "16:00-17:00";
+                      time = widget.stadiumperiod4;
                     }
                     Map<String, dynamic> data = {
                       "email": widget.email,

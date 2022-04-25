@@ -39,9 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.black,
-          title: const Text("WANT 2 KICK"),
+          title: const Text("WANT TO KICK"),
           automaticallyImplyLeading: false,
           actions: [
+            const Text("\n" + "Register"),
             IconButton(
                 onPressed: () {
                   Navigator.push(
@@ -66,6 +67,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 250,
                     height: 250,
                   ),
+                  const Text(
+                    "Login",
+                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                  ),
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -87,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: TextFormField(
+                      obscureText: true,
                       controller: _passwordController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
